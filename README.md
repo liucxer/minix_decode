@@ -10,12 +10,25 @@ root@host-10-0-9-173:/home/liucx# dd if=/dev/zero of=/dev/vdb bs=10M count=100
 100+0 records out
 1048576000 bytes (1.0 GB, 1000 MiB) copied, 10.9314 s, 95.9 MB/s
 
+
 root@host-10-0-9-173:/home/liucx# mkfs.minix /dev/vdb
 21856 inodes
 65535 blocks
 Firstdatazone=696 (696)
 Zonesize=1024
 Maxsize=268966912
+
+
+root@host-10-0-9-173:/home/liucx# mount /dev/vdb /mnt
+root@host-10-0-9-173:/home/liucx# touch /mnt/1
+root@host-10-0-9-173:/home/liucx# echo "11" > /mnt/1
+root@host-10-0-9-173:/home/liucx# chmod 777 /mnt/1
+root@host-10-0-9-173:/home/liucx# mkdir -p /mnt/2
+root@host-10-0-9-173:/home/liucx# chmod 777 /mnt/2
+root@host-10-0-9-173:/home/liucx# touch /mnt/2/3
+root@host-10-0-9-173:/home/liucx# echo "33" > /mnt/2/3
+root@host-10-0-9-173:/home/liucx# chmod 777 /mnt/2/3
+root@host-10-0-9-173:/home/liucx# umount /mnt
 
 root@host-10-0-9-173:/home/liucx# ./minix_decoder_linux_x86_64 /dev/vdb 
 (decoder.DiskData) {

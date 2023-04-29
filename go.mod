@@ -1,4 +1,4 @@
-module github.com/liucxer/minix_decode
+module github.com/liucxer/minix_decoder
 
 go 1.17
 

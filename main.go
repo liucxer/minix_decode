@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/davecgh/go-spew/spew"
-	"github.com/liucxer/minix_decode/decoder"
+	"github.com/liucxer/minix_decoder/decoder"
 	"github.com/sirupsen/logrus"
 	"os"
 )

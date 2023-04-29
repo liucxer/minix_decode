@@ -56,7 +56,6 @@ dd if=/dev/vdb of=./data6.dat bs=1M count=1
 # 创建目录2,
 # 创建文件/2/3, 写入内容33
 dd if=/dev/zero of=/dev/vdb bs=10M count=100
-hexdump -C /dev/vdb
 mkfs.minix /dev/vdb
 mount /dev/vdb /mnt
 
