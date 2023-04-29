@@ -4,11 +4,29 @@ import (
 	"bytes"
 	"encoding/binary"
 	"github.com/sirupsen/logrus"
+	"strconv"
 )
 
 // InodeBitMap  3K大小
 type InodeBitMap struct {
 	InodeMap []bool
+}
+
+func (inodeBitMap *InodeBitMap) String() string {
+	var (
+		res string
+	)
+
+	res += "inodeBitMap: "
+	for i := 0; i < len(inodeBitMap.InodeMap); i++ {
+		if !inodeBitMap.InodeMap[i] {
+			continue
+		}
+
+		res += strconv.Itoa(i+1) + ","
+	}
+
+	return res
 }
 
 func (inodeBitMap *InodeBitMap) Decode(bts []byte, inodeNum int64) error {

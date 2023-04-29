@@ -4,11 +4,29 @@ import (
 	"bytes"
 	"encoding/binary"
 	"github.com/sirupsen/logrus"
+	"strconv"
 )
 
 // DataBlockBitMap  8K大小
 type DataBlockBitMap struct {
 	DataBlockMap []bool
+}
+
+func (dataBlockBitMap *DataBlockBitMap) String() string {
+	var (
+		res string
+	)
+
+	res += "dataBlockBitMap: "
+	for i := 0; i < len(dataBlockBitMap.DataBlockMap); i++ {
+		if !dataBlockBitMap.DataBlockMap[i] {
+			continue
+		}
+
+		res += strconv.Itoa(i+1) + ","
+	}
+
+	return res
 }
 
 func (dataBlockBitMap *DataBlockBitMap) Decode(bts []byte, zoneNum int64) error {

@@ -59,11 +59,18 @@ dd if=/dev/zero of=/dev/vdb bs=10M count=100
 hexdump -C /dev/vdb
 mkfs.minix /dev/vdb
 mount /dev/vdb /mnt
+
 touch /mnt/1
 echo "11" > /mnt/1
+chmod 777 /mnt/1
+
 mkdir -p /mnt/2
+chmod 777 /mnt/2
+
 touch /mnt/2/3
 echo "33" > /mnt/2/3
+chmod 777 /mnt/2/3
+
 umount /mnt
 dd if=/dev/vdb of=./data7.dat bs=1M count=1
 

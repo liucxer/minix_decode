@@ -14,5 +14,6 @@ func main() {
 		logrus.Errorf("disk.Decode err:%v", err)
 		return
 	}
+
 	spew.Dump(disk)
 }
