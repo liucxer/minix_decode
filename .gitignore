@@ -8,4 +8,4 @@ build/
 *.test
 venv
 *.zip
-data*
+*.dat
